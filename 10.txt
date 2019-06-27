@@ -1,0 +1,104 @@
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
+
+public class ButtonExample extends JFrame implements ActionListener,ItemListener {
+
+private JLabel outputLabel=new JLabel();
+private JButton helloButton,exitButton;
+private JPanel panelButton;
+private JCheckBox bold,italic;
+private JPanel panelCheckBox,panel;
+private int style;
+private JRadioButton black,red,blue;
+private ButtonGroup color;
+private JPanel panelRadioButton;
+public ButtonExample(){
+	super("Бутони");
+	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	Container container=this.getContentPane();
+	outputLabel=new JLabel("Натиснете бутона поздрав");
+	outputLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	container.add(outputLabel,BorderLayout.PAGE_START);
+	panelButton=new JPanel();
+ 	helloButton=new JButton("Поздрав");
+	helloButton.addActionListener(this);
+	exitButton=new JButton("Изход");
+	exitButton.addActionListener(this);
+	panelButton.add(helloButton);
+	panelButton.add(exitButton);
+	container.add(panelButton,BorderLayout.PAGE_END);
+	panel=new JPanel();
+	panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+	panelCheckBox=new JPanel();
+	bold=new JCheckBox("Удебелен");
+	bold.addItemListener(this);
+	italic=new JCheckBox("Курсив");
+	italic.addItemListener(this);
+	style=Font.PLAIN;
+	outputLabel.setFont(new Font("Arial",style,12));
+	panelCheckBox.add(bold);
+	panelCheckBox.add(italic);
+	panel.add(panelCheckBox);
+	panelRadioButton=new JPanel();
+	color=new ButtonGroup();
+	black=new JRadioButton("Черен");
+	black.setSelected(true);
+	black.addActionListener(this);
+	red=new JRadioButton("Червен");
+	red.addActionListener(this);
+	blue=new JRadioButton("Син");
+	blue.addActionListener(this);
+	color.add(black);
+	color.add(red);
+	color.add(blue);
+	panelRadioButton.add(black);
+	panelRadioButton.add(red);
+	panelRadioButton.add(blue);
+	panel.add(panelRadioButton);
+	container.add(panel,BorderLayout.CENTER);
+	this.setSize(300,150);
+	this.setVisible(true);
+}
+public void actionPerformed(ActionEvent e){
+	Object source=e.getSource();
+	if(source==helloButton)outputLabel.setText("Добре дошли!");
+	else if(source==exitButton)System.exit(0);
+	else if(source==black){
+		outputLabel.setForeground(Color.BLACK);
+		black.setSelected(true);
+	}
+	else if(source==red){
+		outputLabel.setForeground(Color.RED);
+		red.setSelected(true);
+	}
+	else if(source==blue){
+		outputLabel.setForeground(Color.BLUE);
+		blue.setSelected(true);
+	}
+}
+
+public void itemStateChanged(ItemEvent e){
+	Object source=e.getItemSelectable();
+	if(source==bold){
+		if(bold.isSelected())
+		style+=Font.BOLD;
+		else
+			style-=Font.BOLD;
+	}
+	else if(source==italic){
+		if(italic.isSelected())
+			style+=Font.ITALIC;
+		else
+			style-=Font.ITALIC;
+	}
+	outputLabel.setFont(new Font("Arial",style,12));
+}
+public static void main(String[]args){
+	SwingUtilities.invokeLater(new Runnable(){
+		public void run(){
+			new ButtonExample();
+		}
+	});
+}
+}

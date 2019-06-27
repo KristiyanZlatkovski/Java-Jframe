@@ -1,0 +1,31 @@
+
+
+     public class Birds  extends Animals {
+	    private boolean migration;
+	    private String active;
+	    
+	    public Birds(){super();}
+	    public Birds(int age, double size,String name, boolean mig, String act)
+	    {
+	        super(age, size,name);
+	        migration = mig;
+	        active = act;
+	        
+	    }
+	    public void setMigration(boolean mig){migration = mig;}
+	    public boolean getMIgration(){return migration;}
+	    public void setActive(String act){active=act;}
+	    public String getActive(){return active;}
+	
+	    
+	    public void makeNoise(String m)
+	    {
+	        System.out.println("Noise: " + m);
+	    }
+	    public String toString()
+	    {
+	        return super.toString() + "\nMigration:" + migration + "\tActive:" + active+"\n";
+	    }
+	}
+
+

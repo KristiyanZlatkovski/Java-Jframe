@@ -1,0 +1,43 @@
+package domashno;
+
+import java.util.Scanner;
+
+public class Circle {
+	public static double sideA;
+	public static double sideB;
+
+	public static void main(String[] args) {
+		Circle c = new Circle();
+		System.out.println("Въведете страната А на правоъгълника");
+		Scanner input = new Scanner(System.in);
+		c.sideA = input.nextDouble();
+		System.out.println("Въведете страната B на правоъгълника");
+		c.sideB = input.nextDouble();
+		System.out.printf("Лицето на вашият правоъгълник е :%.2f\n", c.area());
+		System.out.printf("Обиколката на вашият правоъгълник е :%.2f\n", c.perimetur());
+		
+	}
+
+	public Circle() {
+	}
+
+	public Circle(double a, double b) {
+		sideA = a;
+		sideB = a;
+	}
+
+	public double area() {
+
+		double a;
+		a = sideA * sideB;
+		return a;
+	}
+
+	public double perimetur() {
+
+		double p;
+		p = 2 * (sideA + sideB);
+		return p;
+
+	}
+}

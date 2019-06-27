@@ -1,0 +1,42 @@
+package domashno;
+
+import java.awt.Graphics;
+import java.text.DecimalFormat;
+
+import javax.swing.JApplet;
+import javax.swing.JOptionPane;
+
+public class CircleApllet extends JApplet {
+	int a = 30;
+	int b = 30;
+	public void init() {
+	
+		String s = "";
+		String x = "";
+		JOptionPane panel = new JOptionPane();
+		s = panel.showInputDialog("Въведете страната А на правоъгълника");
+		x = panel.showInputDialog("Въведете страната B на правоъгълника");
+		a = Integer.parseInt(s);
+		b = Integer.parseInt(x);
+
+	}
+	
+	public void paint(Graphics g) {
+		Circle d=new Circle();
+		d.sideA=a;
+		d.sideB=b;
+		DecimalFormat fmt=new DecimalFormat("#.##");
+		if(d.sideA==d.sideB) {
+			g.drawString("Квадрат", 5+((int)d.sideA/2), 30);
+		}
+		else {
+		g.drawString("Правоъгълник", 5+((int)d.sideA/2), 30);
+		}
+		g.fillRect(30, 40, a, b);
+		g.drawString("Площ:"+fmt.format(d.area()), 5+((int)d.sideA/2), 50+((int)d.sideB));
+		g.drawString("Обиколка:"+fmt.format(d.perimetur()), 5+((int)d.sideA/2), 70+((int)d.sideB));
+	}
+	
+	
+	
+}

@@ -1,0 +1,39 @@
+package domashno;
+
+import java.util.Scanner;
+
+public class tesSimpleArray {
+
+	public static void main(String[]args) {
+		Scanner input=new Scanner(System.in);
+		int[]arr=new int[10];
+		for(int i=0;i<10;i++) {
+			System.out.println("Enter new element");
+			arr[i]=input.nextInt();
+		}
+		printReverse(arr,arr.length);
+		int j=maxNegative(arr,arr.length);
+		if(arr[j]==0||arr[j]>0)System.out.println("There were no negative numbers in the array");
+		else System.out.println("The bigest negative number in the array is:"+arr[j]+", with position :"+j);
+	}
+	public static void printReverse(int[] x,int n) {
+		int i;
+		for( i=n-1;i>=0;i--)
+			System.out.println("arr["+i+"]="+x[i]);
+	}
+	
+	
+	public static int maxNegative(int[] x,int n) {
+		int i;
+		int z=0;
+		int w=0;
+		for( i=n-1;i>=0;i--)
+			if((x[i]<0)&&(x[i]<z)) {
+				z=x[i];
+				w=i;
+			}
+		return w;
+	}
+	
+	
+}

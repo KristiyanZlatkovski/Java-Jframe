@@ -1,0 +1,16 @@
+
+
+public class TestFauna {
+   
+    public static void main(String[] args) 
+    {
+    	int size=2;
+       Birds[] array=new Birds[size];
+       array[0]=new Birds(4,10,"Eagle",true,"day");
+       array[1]=new Birds(7,2,"Sparrow",false,"day");
+       for(int i=0;i<size;i++) {
+       System.out.println(array[i]);
+    
+       }
+    }
+}

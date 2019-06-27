@@ -1,0 +1,83 @@
+package domashno;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.text.DecimalFormat;
+
+import javax.swing.JApplet;
+import javax.swing.JOptionPane;
+
+public class OlimpicCircles extends JApplet {
+	
+	public void init() {
+	
+	
+
+	}
+	
+	public void paint(Graphics g) {
+		int num=0;
+		
+		g.setColor(Color.blue); 
+	 for(int i=0;i<5;i++) {
+	g.drawArc(40+i, 40+i, 200-num, 200-num, 90, 200);
+	num+=2;
+	 }
+	 num=0;
+		g.setColor(Color.yellow); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(150+i, 160+i, 200-num, 200-num, 90, 300);
+		num+=2;
+		 }
+		 num=0;
+		 g.setColor(Color.blue); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(40+i, 40+i, 200-num, 200-num, 290, 160);
+		num+=2;
+		 }
+		 num=0;
+		 g.setColor(Color.black); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(250+i, 40+i, 200-num, 200-num, 90, 200);
+		num+=2;
+		 }
+		 num=0;
+		 g.setColor(Color.yellow); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(150+i, 160+i, 200-num, 200-num, 390, 60);
+		num+=2;
+		 }
+		 num=0;
+		 g.setColor(Color.green); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(360+i,160+i, 200-num, 200-num, 90, 300);
+		num+=2;
+		 }
+		 num=0;
+		 g.setColor(Color.black); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(250+i, 40+i, 200-num, 200-num, 290, 160);
+		num+=2;
+		 }
+		 num=0;
+		 g.setColor(Color.red); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(460+i, 40+i, 200-num, 200-num, 90, 360);
+		num+=2;
+		 }
+		 num=0;
+		 g.setColor(Color.green); 
+		 for(int i=0;i<5;i++) {
+		g.drawArc(360+i,160+i, 200-num, 200-num, 390, 60);
+		num+=2;
+		 }
+	
+	
+
+	
+	
+	}
+	
+	
+	
+}

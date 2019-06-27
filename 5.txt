@@ -1,0 +1,25 @@
+
+
+public abstract class Animals {
+    private int age;
+    private double size;
+    private String name;
+    public Animals(){}
+    public Animals(int age, double size,String name){
+        this.age = age;
+        this.size = size;
+        this.name=name;
+    }
+    public void setAge(int x){age = x;}
+    public int getAge(){return age;}
+    public void setSize(double y){size=y;}
+    public double getSize(){return size;}
+    public void setName(String n){name=n;}
+    public String getName(){return name;}
+    public abstract void makeNoise(String message);
+    
+    public String toString()
+    {
+        return "Name:"+name+"\nSize:" + size + "\tAge:" + age;
+    }
+}
